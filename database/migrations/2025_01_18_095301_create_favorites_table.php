@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->text('miniature')->nullable();
             $table->text('description');
-            $table->id_users('id_users');
+            $table->foreignId('id_users')->references('id')->on('users');
             $table->timestamps();
         });
     }
