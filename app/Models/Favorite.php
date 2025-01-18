@@ -9,6 +9,6 @@ class Favorite extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title', 'description', 'miniature', 'id_users'
+        'title', 'description', 'miniature', 'id_users','videoId'
     ];
 }

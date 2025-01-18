@@ -43,5 +43,6 @@ class YouTubeController extends Controller
 
         // Pasar los resultados a la vista
         return view('youtube.search', compact('data'));
+        //return($data['items']['snippet']);
     }
 }

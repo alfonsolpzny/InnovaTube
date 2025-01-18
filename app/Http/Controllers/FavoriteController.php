@@ -14,7 +14,7 @@ class FavoriteController extends Controller
     public function index(Request $request)
     {
         $userId = Auth::user()->id;
-        $favorites = Favorite::select('users.id', 'users.name', 'favorites.title', 'favorites.description')
+        $favorites = Favorite::select('users.id', 'users.name', 'favorites.title', 'favorites.description', 'favorites.miniature','favorites.videoId')
                 ->join('users', 'users.id', '=', 'favorites.id_users')->where('users.id', $userId)->get();        
         
         return view('favorites.index', compact('favorites'));
@@ -30,10 +30,12 @@ class FavoriteController extends Controller
         Favorite::create([   'title'=>$request['snippet']['title'],
                             'description'=>$request['snippet']['description'],
                             'miniature'=>$request['snippet']['thumbnails']['default']['url'],
+                            'videoId'=>$request ['id']['videoId'],
                             'id_users'=>$userId
                         ]);
         
         //return $request['snippet']['thumbnails']['default']['url'];
+        return redirect()->back();
     }
 
     /**
