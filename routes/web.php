@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
 
 
 
+
 Route::get('/youtube/search', [YouTubeController::class, 'search']);
 
 
