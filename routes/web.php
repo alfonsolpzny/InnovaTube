@@ -20,8 +20,9 @@ Route::middleware('auth')->group(function () {
 
 
 
-
-Route::get('/youtube/search', [YouTubeController::class, 'search']);
+Route::get('/youtube', [YouTubeController::class, 'index']);
+Route::get('/youtube/result', [YouTubeController::class, 'result']);
+Route::get('/youtube/search', [YouTubeController::class, 'search']);  // Ruta para manejar la búsqueda
 
 
 require __DIR__.'/auth.php';
