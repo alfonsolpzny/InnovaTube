@@ -1,0 +1,1 @@
+SELECT users.id, users.name, favorites.title, favorites.description FROM users INNER JOIN favorites ON users.id = favorites.id_users and users.id=2;
