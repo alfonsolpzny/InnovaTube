@@ -26,6 +26,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
 # Iniciar la migracion de la base de datos
 RUN php artisan migrate --force
 
+# Crea los archivos de NPM
+RUN npm install && npm run build
+
 # Habilita Apache mod_rewrite
 RUN a2enmod rewrite
 
