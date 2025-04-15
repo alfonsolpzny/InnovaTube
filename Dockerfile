@@ -23,3 +23,6 @@ RUN a2enmod rewrite
 
 # Configuración de Apache
 COPY ./000-default.conf /etc/apache2/sites-available/000-default.conf
+
+# Iniciar la migracion de la base de datos
+RUN php artisan migrate --force
