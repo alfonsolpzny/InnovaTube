@@ -23,9 +23,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs \
     && npm install && npm run build
 
-#Configurar permisos y Apache
-RUN chown -R www-data:www-data /var/www/html \
-
 # Habilita Apache mod_rewrite
 RUN a2enmod rewrite
 
