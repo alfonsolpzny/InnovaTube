@@ -18,13 +18,13 @@ WORKDIR /var/www/html
 RUN composer install --no-dev --optimize-autoloader \
     && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Iniciar la migracion de la base de datos
-RUN php artisan migrate --force
-
 # Instala Node y dependencias JS (opcional)
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
     && apt-get install -y nodejs \
     && npm install && npm run build
+
+# Iniciar la migracion de la base de datos
+RUN php artisan migrate --force
 
 # Habilita Apache mod_rewrite
 RUN a2enmod rewrite
